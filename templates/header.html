@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME</title>
+  <link rel="stylesheet" href="/static/css/home.css">
+  <link rel="stylesheet" href="/static/css/add_book.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+ </head>
+ <body>
+   <input type="checkbox" id="check">
+   <label for="check">
+     <i class="fas fa-bars" id="btn"></i>
+     <i class="fas fa-times" id="cancel"></i>
+   </label>
+   <div class="sidebar">
+     <header>Library</header>
+     <a href="{% url 'home' %}" class="active">
+       <i class="fas fa-qrcode"></i>
+       <span>HOME</span>
+     </a>
+     <a href="{% url 'add_book' %}">
+       <i class="fas fa-qrcode"></i>
+       <span>ADD BOOK</span>
+     </a>
+     <a href="{% url 'book_report' %}">
+       <i class="fas fa-link"></i>
+       <span>BOOK REPORT</span>
+     </a>
+     <a href="#">
+       <i class="fas fa-stream"></i>
+       <span>BOOK REQUESTS</span>
+     </a>
+     <a href="#">
+        <i class="fas fa-calendar"></i>
+       <span>ADD STUDENT</span>
+     </a>
+     <a href="#">
+       <i class="far fa-question-circle"></i>
+       <span>STUDENT REPORT</span>
+     </a>
+     <a href="#">
+       <i class="fas fa-sliders-h"></i>
+       <span>ISSUE BOOK</span>
+     </a>
+     <a href="#">
+       <i class="far fa-envelope"></i>
+       <span>ISSUE REPORT</span>
+     </a>
+     <a href="{% url 'logout' %}">
+       <i class="far fa-envelope"></i>
+       <span>LOGOUT</span>
+     </a>
+   </div>

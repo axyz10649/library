@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Book Information</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Book Name</th>
+                <th>Photo</th>
+                <th>Details</th>
+                <th>Author</th>
+                <th>Year</th>
+                <th>Branch</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>The Great Gatsby</td>
+                <td><img src="path_to_photo.jpg" alt="Book Cover"></td>
+                <td>A novel by F. Scott Fitzgerald</td>
+                <td>F. Scott Fitzgerald</td>
+                <td>1925</td>
+                <td>English Literature</td>
+                <td>$10.99</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}
