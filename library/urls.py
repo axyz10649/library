@@ -23,7 +23,7 @@ urlpatterns = [
     path('', views.SignupPage, name='signup'),
     path('login/', views.LoginPage, name='login'),
     path('home/', views.HomePage, name='home'),
-    path('add_book/', views.AddBook, name='add_book'),
     path('logout/', views.LogoutPage, name='logout'),
     path('book_report/', views.BookReport, name='book_report'),
+    path('add_book/', views.AddBook, name='add_book'),
 ]

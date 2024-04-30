@@ -8,28 +8,33 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Book Details</th>
                 <th>Book Name</th>
-                <th>Photo</th>
-                <th>Details</th>
                 <th>Author</th>
                 <th>Year</th>
                 <th>Branch</th>
                 <th>Price</th>
+                <th>Quantity</th>
+                <th>Photo</th>
+                <th>UPDATE</th>
             </tr>
         </thead>
         <tbody>
+            {% for book in books %}
             <tr>
-                <td>1</td>
-                <td>The Great Gatsby</td>
-                <td><img src="path_to_photo.jpg" alt="Book Cover"></td>
-                <td>A novel by F. Scott Fitzgerald</td>
-                <td>F. Scott Fitzgerald</td>
-                <td>1925</td>
-                <td>English Literature</td>
-                <td>$10.99</td>
+                <td>{{ book.0 }}</td>
+                <td>{{ book.1 }}</td>
+                <td>{{ book.2 }}</td>
+                <td>{{ book.3 }}</td>
+                <td>{{ book.4 }}</td>
+                <td>{{ book.5 }}</td>
+                <td>{{ book.6 }}</td>
+                <td>{{ book.7 }}</td>
+                <td>{{ book.8 }}</td>
+                <td></td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+
 {% endblock %}

@@ -1,14 +1,12 @@
 from django.shortcuts import render,HttpResponse,redirect
 import mysql.connector as sql
+from django.contrib import messages
+
 
 m=sql.connect(host="localhost",user="root",passwd="Jitu_srp#121",database='website')
-#                                             SIGNUP VIEW  
+                                            # SIGNUP VIEW  
 def SignupPage(request):
-    fn=''
-    ln=''
-    r=''
-    em=''
-    pwd=''
+    fn,ln,r,em,pwd='','','','',''
     if request.method=="POST":
         cursor=m.cursor()
         d=request.POST
@@ -51,9 +49,9 @@ def LoginPage(request):
         cursor.execute(c)
         t=tuple(cursor.fetchall())
         if t==():
-            # print(em,pwd,re)
             return render(request,'error.html')
         else:
+            messages.success(request, 'You have been logged in successfully!')
             first_name = t[0][0]
             return render(request,"home.html",context = {'first_name': first_name})
 
@@ -74,7 +72,34 @@ def AddBook(request):
 
 def LogoutPage(request):
     return redirect('login')
-                                    # BOOKREPORT VIEWS
+
+                                    # ADD_BOOK VIEWS
+
+def AddBook(request):
+    if request.method == "POST":
+        cursor = m.cursor()
+        d = request.POST
+        book_id = d.get("bookId")
+        book_name = d.get("bookName")
+        book_detail = d.get("detail")
+        author = d.get("author")
+        publication = d.get("publication")
+        branch = d.get("branch")
+        price = d.get("price")
+        quantity = d.get("quantity")
+        book_photo = d.get("bookPhoto")
+
+        query = "INSERT INTO books VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        values = (book_id, book_name, book_detail, author, publication, branch, price, quantity, book_photo)
+        cursor.execute(query, values)
+        m.commit()
+        return redirect('book_report')
+
+    return render(request, 'add_book.html')
+
 
 def BookReport(request):
-    return render(request,'book_report_admin.html')
+    cursor = m.cursor()
+    cursor.execute("SELECT * FROM books")
+    books = cursor.fetchall()
+    return render(request, 'book_report_admin.html', {'books': books})
